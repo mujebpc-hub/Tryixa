@@ -180,3 +180,500 @@ p{
     display:none;
 
 }
+
+/* ===================================================
+   TRYIXA NAVBAR
+   Part 2
+=================================================== */
+
+.top-navbar{
+
+    position:sticky;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:70px;
+
+    background:#151515;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 20px;
+
+    border-bottom:1px solid var(--border);
+
+    z-index:999;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.logo img{
+
+    width:42px;
+
+    height:42px;
+
+    object-fit:cover;
+
+}
+
+.logo h2{
+
+    color:var(--text);
+
+    font-size:22px;
+
+    letter-spacing:1px;
+
+}
+
+.nav-icons{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.nav-icons button{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:var(--card);
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:0.3s;
+
+}
+
+.nav-icons button:hover{
+
+    background:var(--primary);
+
+    transform:scale(1.08);
+
+}
+
+.nav-icons button:active{
+
+    transform:scale(.95);
+
+}
+
+/* ===================================================
+   TRYIXA STORIES
+   Part 3
+=================================================== */
+
+#stories{
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px 18px;
+
+    overflow-x:auto;
+
+    overflow-y:hidden;
+
+    background:#111111;
+
+    border-bottom:1px solid var(--border);
+
+    scroll-behavior:smooth;
+
+}
+
+#stories::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.story{
+
+    min-width:80px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+.story:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.story-image{
+
+    width:68px;
+
+    height:68px;
+
+    border-radius:50%;
+
+    padding:3px;
+
+    background:linear-gradient(45deg,#ff0000,#ff5a5f,#ff9800);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.story-image img{
+
+    width:100%;
+
+    height:100%;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:3px solid #111111;
+
+}
+
+.story-name{
+
+    margin-top:8px;
+
+    font-size:12px;
+
+    color:var(--text);
+
+    text-align:center;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+    max-width:72px;
+
+}
+
+.story.active .story-image{
+
+    background:#555555;
+
+}
+
+.story.live .story-image{
+
+    animation:storyPulse 2s infinite;
+
+}
+
+@keyframes storyPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.08);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* ===================================================
+   TRYIXA FEED
+   Part 4
+=================================================== */
+
+#feed{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    padding:20px;
+
+}
+
+/* ===========================
+   Post Card
+=========================== */
+
+.post-card{
+
+    width:100%;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.post-card:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* ===========================
+   Post Header
+=========================== */
+
+.post-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:14px 16px;
+
+}
+
+.post-user{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.post-user img{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+.post-user-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.post-user-info h4{
+
+    font-size:15px;
+
+    color:var(--text);
+
+}
+
+.post-user-info span{
+
+    font-size:12px;
+
+    color:var(--text-light);
+
+}
+
+.post-menu{
+
+    cursor:pointer;
+
+    font-size:22px;
+
+    color:var(--text-light);
+
+}
+
+/* ===========================
+   Post Image
+=========================== */
+
+.post-image{
+
+    width:100%;
+
+}
+
+.post-image img{
+
+    width:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+}
+
+/* ===========================
+   Post Actions
+=========================== */
+
+.post-actions{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 16px;
+
+}
+
+.post-left-actions{
+
+    display:flex;
+
+    gap:14px;
+
+}
+
+.action-btn{
+
+    background:none;
+
+    color:var(--text);
+
+    font-size:20px;
+
+    transition:var(--transition);
+
+}
+
+.action-btn:hover{
+
+    color:var(--primary);
+
+    transform:scale(1.1);
+
+}
+
+/* ===========================
+   Likes
+=========================== */
+
+.post-likes{
+
+    padding:0 16px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    color:var(--text);
+
+}
+
+/* ===========================
+   Caption
+=========================== */
+
+.post-caption{
+
+    padding:10px 16px;
+
+    color:var(--text-light);
+
+    line-height:1.6;
+
+}
+
+.post-caption strong{
+
+    color:var(--text);
+
+}
+
+/* ===========================
+   Comments
+=========================== */
+
+.post-comments{
+
+    padding:0 16px 16px;
+
+    color:#8f8f8f;
+
+    font-size:14px;
+
+    cursor:pointer;
+
+}
+
+.post-comments:hover{
+
+    color:var(--text);
+
+}
