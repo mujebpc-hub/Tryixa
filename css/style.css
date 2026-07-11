@@ -941,3 +941,264 @@ p{
     font-weight:bold;
 
 }
+
+/* ===================================================
+   TRYIXA FLOATING BUTTONS, MODALS & POPUPS
+   Part 6
+=================================================== */
+
+/* Floating Create Button */
+
+#createPost{
+
+    position:fixed;
+
+    right:22px;
+
+    bottom:90px;
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    font-size:30px;
+
+    box-shadow:var(--shadow);
+
+    z-index:1000;
+
+}
+
+#createPost:hover{
+
+    transform:scale(1.08);
+
+}
+
+/* AI Button */
+
+#aiAssistantBtn{
+
+    position:fixed;
+
+    left:22px;
+
+    bottom:90px;
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:50%;
+
+    background:#111111;
+
+    color:#ffffff;
+
+    border:2px solid var(--primary);
+
+    font-weight:bold;
+
+    box-shadow:var(--shadow);
+
+    z-index:1000;
+
+}
+
+#aiAssistantBtn:hover{
+
+    background:var(--primary);
+
+}
+
+/* Overlay */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    backdrop-filter:blur(8px);
+
+    z-index:1500;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    padding-top:90px;
+
+}
+
+/* Search Box */
+
+.search-box{
+
+    width:90%;
+
+    max-width:600px;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    padding:16px 20px;
+
+    border-radius:40px;
+
+    background:var(--card);
+
+    color:#ffffff;
+
+    border:1px solid var(--border);
+
+}
+
+/* Modal */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.75);
+
+    z-index:2000;
+
+}
+
+.modal-content{
+
+    width:92%;
+
+    max-width:500px;
+
+    background:var(--card);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    border:1px solid var(--border);
+
+    box-shadow:var(--shadow);
+
+}
+
+/* Popup */
+
+#popupContainer{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:2500;
+
+}
+
+/* Toast */
+
+#toast{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:100px;
+
+    transform:translateX(-50%);
+
+    background:var(--primary);
+
+    color:#ffffff;
+
+    padding:14px 24px;
+
+    border-radius:30px;
+
+    box-shadow:var(--shadow);
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+/* Loader */
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#0f0f0f;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:20px;
+
+    z-index:9999;
+
+}
+
+.loader-circle{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    border:5px solid #333333;
+
+    border-top:5px solid var(--primary);
+
+    animation:loaderSpin 1s linear infinite;
+
+}
+
+@keyframes loaderSpin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
