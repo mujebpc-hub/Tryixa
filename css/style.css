@@ -1,1 +1,182 @@
+/* ===================================================
+   TRYIXA CSS FOUNDATION
+   Part 1
+=================================================== */
 
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:#0f0f0f;
+    color:#ffffff;
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    overflow-x:hidden;
+
+}
+
+/* ROOT VARIABLES */
+
+:root{
+
+    --primary:#ff0000;
+    --secondary:#111111;
+
+    --background:#0f0f0f;
+
+    --card:#1b1b1b;
+
+    --border:#2b2b2b;
+
+    --text:#ffffff;
+
+    --text-light:#bdbdbd;
+
+    --shadow:0 8px 20px rgba(0,0,0,.35);
+
+    --radius:18px;
+
+    --transition:.3s ease;
+
+}
+
+/* APP */
+
+#app{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+/* LINKS */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+/* IMAGE */
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+/* BUTTON */
+
+button{
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+/* INPUT */
+
+input{
+
+    outline:none;
+
+    border:none;
+
+}
+
+/* LIST */
+
+ul{
+
+    list-style:none;
+
+}
+
+/* MAIN */
+
+main{
+
+    width:100%;
+
+    flex:1;
+
+}
+
+/* SECTION */
+
+section{
+
+    width:100%;
+
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:20px;
+
+}
+
+/* TEXT */
+
+h1,h2,h3,h4,h5,h6{
+
+    font-weight:700;
+
+}
+
+p{
+
+    color:var(--text-light);
+
+    line-height:1.6;
+
+}
+
+/* HIDDEN */
+
+.hidden{
+
+    display:none;
+
+}
