@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Chat - Tryixa</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"><link rel="stylesheet" href="css/animation.css"></head>
+<body data-page="chat">
+  <div class="app-shell"><aside class="app-sidebar"></aside><main class="app-main"><header class="app-topbar"></header><div class="page-container">
+    <section class="panel chat-layout" data-endpoint="/api/chats">
+      <aside class="chat-list" id="chat-list-section"><div class="rail-heading"><h2>Messages</h2><button id="chat-new-btn" class="btn btn-primary" type="button">New</button></div><div id="chat-threads-list" class="stack"></div></aside>
+      <section class="chat-room" id="chat-room-section"><div class="rail-heading"><h2 id="chat-room-title">WanderLens</h2><button id="chat-call-btn" class="btn btn-secondary" type="button">Call</button></div><div id="chat-message-list" class="message-list"></div><form id="chat-message-form" class="chat-composer"><div class="field"><label class="sr-only" for="chat-message-input">Message</label><input id="chat-message-input" name="message" type="text" placeholder="Type a message"></div><button id="chat-send-btn" class="btn btn-primary" type="submit">Send</button></form></section>
+    </section>
+  </div></main></div><nav class="mobile-nav"></nav>
+  <script src="js/config.js"></script><script src="js/storage.js"></script><script src="js/utils.js"></script><script src="js/api.js"></script><script src="js/navigation.js"></script><script src="js/chat.js"></script><script src="js/theme.js"></script><script src="js/app.js"></script>
+</body></html>
