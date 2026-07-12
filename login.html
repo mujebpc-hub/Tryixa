@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Tryixa</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animation.css">
+</head>
+<body class="auth-page" data-page="login">
+  <main class="auth-shell">
+    <section class="auth-showcase">
+      <a class="brand" href="index.html"><span class="brand-mark">T</span><span>Tryixa</span></a>
+      <div class="auth-copy">
+        <span class="kicker">Creator social platform</span>
+        <h1>Share reels, stories, videos, chats, and AI ideas.</h1>
+        <p>Tryixa is built for creators and communities with a premium dark interface, realtime-ready structure, and future backend integration.</p>
+      </div>
+      <div class="auth-preview" aria-hidden="true">
+        <div class="preview-block preview-large media-scene"></div>
+        <div class="preview-block preview-small top"></div>
+        <div class="preview-block preview-small bottom"></div>
+      </div>
+    </section>
+    <section class="auth-card" data-endpoint="/api/auth/login">
+      <span class="kicker">Welcome back</span>
+      <h1>Log in to Tryixa</h1>
+      <p>Continue to your feed, messages, creator studio, and AI workspace.</p>
+      <form id="login-form" class="auth-form" novalidate>
+        <div class="field">
+          <label for="login-identifier">Email or username</label>
+          <input id="login-identifier" name="identifier" type="text" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="login-password">Password</label>
+          <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+        </div>
+        <div class="form-row">
+          <label class="check-line" for="login-remember"><input id="login-remember" name="remember" type="checkbox"> Remember me</label>
+          <a href="settings.html">Forgot password?</a>
+        </div>
+        <button id="login-submit-btn" class="btn btn-primary btn-full" type="submit">Login</button>
+      </form>
+      <div class="auth-divider"><span>or</span></div>
+      <div class="grid-2">
+        <button id="login-google-btn" class="btn btn-secondary" type="button">Google</button>
+        <button id="login-apple-btn" class="btn btn-secondary" type="button">Apple</button>
+      </div>
+      <p>New here? <a href="signup.html">Create account</a></p>
+    </section>
+  </main>
+  <script src="js/config.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
