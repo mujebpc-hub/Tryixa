@@ -1,498 +1,61 @@
-/*==================================================
-            TRYIXA NAVIGATION MODULE
-                    Part 1
-==================================================*/
-
-"use strict";
-
-
-/*====================================
-        PAGE REFERENCES
-====================================*/
-
-const pages = {
-
-    home: document.getElementById("home"),
-
-    search: document.getElementById("search"),
-
-    create: document.getElementById("create"),
-
-    reels: document.getElementById("reels"),
-
-    chat: document.getElementById("chat"),
-
-    notifications: document.getElementById("notifications"),
-
-    profile: document.getElementById("profile")
-
-};
-
-
-/*====================================
-        HIDE ALL PAGES
-====================================*/
-
-function hideAllPages(){
-
-    Object.values(pages).forEach(page=>{
-
-        if(page){
-
-            page.style.display = "none";
-
-        }
-
-    });
-
-}
-
-
-/*====================================
-        OPEN PAGE
-====================================*/
-
-function openPage(pageName){
-
-    hideAllPages();
-
-    if(!pages[pageName]) return;
-
-    pages[pageName].style.display = "block";
-
-}
-
-
-/*====================================
-        NAVIGATION CLICK
-====================================*/
-
-function initializeNavigation(){
-
-    document.querySelectorAll("[data-page]").forEach(button=>{
-
-        button.addEventListener("click",()=>{
-
-            const page = button.dataset.page;
-
-            openPage(page);
-
-        });
-
-    });
-
-}
-
-
-/*====================================
-        START PAGE
-====================================*/
-
-function initializeNavigationModule(){
-
-    openPage("home");
-
-    initializeNavigation();
-
-    console.log("Navigation Ready");
-
-}
-
-/*==================================================
-            TRYIXA NAVIGATION MODULE
-                    Part 2
-==================================================*/
-
-
-/*====================================
-        ACTIVE NAVIGATION
-====================================*/
-
-function updateActiveNavigation(pageName){
-
-    document.querySelectorAll("[data-page]").forEach(button=>{
-
-        button.classList.remove("active");
-
-        if(button.dataset.page===pageName){
-
-            button.classList.add("active");
-
-        }
-
-    });
-
-}
-
-
-/*====================================
-        PAGE ANIMATION
-====================================*/
-
-function animatePage(page){
-
-    if(!page) return;
-
-    page.classList.remove("page-show");
-
-    void page.offsetWidth;
-
-    page.classList.add("page-show");
-
-}
-
-
-/*====================================
-        UPDATE PAGE
-====================================*/
-
-function showPage(pageName){
-
-    hideAllPages();
-
-    const page = pages[pageName];
-
-    if(!page) return;
-
-    page.style.display="block";
-
-    animatePage(page);
-
-    updateActiveNavigation(pageName);
-
-}
-
-
-/*====================================
-        NAVIGATION CLICK
-====================================*/
-
-function initializeNavigationClicks(){
-
-    document.querySelectorAll("[data-page]").forEach(button=>{
-
-        button.addEventListener("click",()=>{
-
-            const pageName = button.dataset.page;
-
-            showPage(pageName);
-
-        });
-
-    });
-
-}
-
-/*==================================================
-            TRYIXA NAVIGATION MODULE
-                    Part 3
-==================================================*/
-
-
-/*====================================
-        URL HASH ROUTING
-====================================*/
-
-function updateURL(pageName){
-
-    location.hash = pageName;
-
-}
-
-
-/*====================================
-        OPEN HASH PAGE
-====================================*/
-
-function openHashPage(){
-
-    const hash = location.hash.replace("#","");
-
-    if(hash && pages[hash]){
-
-        showPage(hash);
-
-    }
-
-    else{
-
-        showPage("home");
-
-    }
-
-}
-
-
-/*====================================
-        HASH CHANGE
-====================================*/
-
-function initializeHashRouting(){
-
-    window.addEventListener("hashchange",()=>{
-
-        openHashPage();
-
-    });
-
-}
-
-
-/*====================================
-        BROWSER HISTORY
-====================================*/
-
-function initializeHistorySupport(){
-
-    window.addEventListener("popstate",()=>{
-
-        openHashPage();
-
-    });
-
-}
-
-
-/*====================================
-        NAVIGATION UPDATE
-====================================*/
-
-function navigateTo(pageName){
-
-    if(!pages[pageName]) return;
-
-    updateURL(pageName);
-
-    showPage(pageName);
-
-}
-
-/*==================================================
-            TRYIXA NAVIGATION MODULE
-                    Part 4
-==================================================*/
-
-
-/*====================================
-        MOBILE MENU
-====================================*/
-
-let mobileMenuOpen = false;
-
-function toggleMobileMenu(){
-
-    const menu = document.querySelector(".mobile-menu");
-
-    if(!menu) return;
-
-    mobileMenuOpen = !mobileMenuOpen;
-
-    menu.classList.toggle("show", mobileMenuOpen);
-
-}
-
-
-/*====================================
-        MENU BUTTON
-====================================*/
-
-function initializeMobileMenu(){
-
-    const button = document.querySelector(".menu-button");
-
-    if(!button) return;
-
-    button.addEventListener("click", toggleMobileMenu);
-
-}
-
-
-/*====================================
-        CLOSE MENU AFTER CLICK
-====================================*/
-
-function closeMenuAfterNavigation(){
-
-    document.querySelectorAll("[data-page]").forEach(button=>{
-
-        button.addEventListener("click",()=>{
-
-            const menu = document.querySelector(".mobile-menu");
-
-            if(menu){
-
-                menu.classList.remove("show");
-
-            }
-
-            mobileMenuOpen = false;
-
-        });
-
-    });
-
-}
-
-
-/*====================================
-        KEYBOARD SHORTCUTS
-====================================*/
-
-function initializeKeyboardShortcuts(){
-
-    document.addEventListener("keydown",(event)=>{
-
-        if(event.target.tagName==="INPUT") return;
-
-        if(event.key==="1") navigateTo("home");
-
-        if(event.key==="2") navigateTo("search");
-
-        if(event.key==="3") navigateTo("create");
-
-        if(event.key==="4") navigateTo("reels");
-
-        if(event.key==="5") navigateTo("chat");
-
-        if(event.key==="6") navigateTo("notifications");
-
-        if(event.key==="7") navigateTo("profile");
-
-    });
-
-}
-
-
-/*====================================
-        ESC CLOSE MENU
-====================================*/
-
-function initializeEscapeKey(){
-
-    document.addEventListener("keydown",(event)=>{
-
-        if(event.key!=="Escape") return;
-
-        const menu = document.querySelector(".mobile-menu");
-
-        if(menu){
-
-            menu.classList.remove("show");
-
-        }
-
-        mobileMenuOpen = false;
-
-    });
-
-}
-
-/*==================================================
-            TRYIXA NAVIGATION MODULE
-                    Part 5
-==================================================*/
-
-
-/*====================================
-        STORAGE KEY
-====================================*/
-
-const NAVIGATION_STORAGE_KEY = "tryixa_navigation";
-
-
-/*====================================
-        SAVE LAST PAGE
-====================================*/
-
-function saveCurrentPage(pageName){
-
-    localStorage.setItem(
-
-        NAVIGATION_STORAGE_KEY,
-
-        pageName
-
-    );
-
-}
-
-
-/*====================================
-        LOAD LAST PAGE
-====================================*/
-
-function loadCurrentPage(){
-
-    return localStorage.getItem(
-
-        NAVIGATION_STORAGE_KEY
-
-    ) || "home";
-
-}
-
-
-/*====================================
-        BACKEND READY
-====================================*/
-
-async function fetchNavigation(){
-
-    /*
-        Future API
-
-        GET /api/navigation
-
-    */
-
-    return true;
-
-}
-
-
-async function updateNavigation(pageName){
-
-    /*
-        Future API
-
-        POST /api/navigation
-
-    */
-
-    console.log("Navigation Synced:",pageName);
-
-}
-
-
-/*====================================
-        OPEN APPLICATION
-====================================*/
-
-function openApplication(pageName){
-
-    navigateTo(pageName);
-
-    saveCurrentPage(pageName);
-
-    updateNavigation(pageName);
-
-}
-
-
-/*====================================
-        EXPORT MODULE
-====================================*/
-
-window.TryixaNavigation={
-
-    open:openApplication,
-
-    navigate:navigateTo,
-
-    save:saveCurrentPage,
-
-    load:loadCurrentPage,
-
-    sync:updateNavigation
-
-};
+(function () {
+  const navItems = [
+    ["index.html", "Home", "home"],
+    ["explore.html", "Explore", "explore"],
+    ["reels.html", "Reels", "reels"],
+    ["videos.html", "Videos", "videos"],
+    ["chat.html", "Chat", "chat", "New"],
+    ["notifications.html", "Notifications", "notifications", "8"],
+    ["upload.html", "Upload Studio", "upload"],
+    ["ai.html", "AI Studio", "ai"],
+    ["profile.html", "Profile", "profile"],
+    ["settings.html", "Settings", "settings"],
+    ["admin.html", "Admin", "admin"]
+  ];
+
+  function renderSidebar() {
+    const sidebar = document.querySelector(".app-sidebar");
+    if (!sidebar) return;
+    const page = document.body.dataset.page;
+    sidebar.innerHTML = `
+      <a class="brand" href="index.html"><span class="brand-mark">T</span><span>Tryixa</span></a>
+      <nav class="side-nav" aria-label="Primary navigation">
+        ${navItems.map(([href, label, key, badge]) => `
+          <a class="nav-link ${page === key ? "active" : ""}" href="${href}">
+            <span>${label}</span>${badge ? `<small class="nav-badge">${badge}</small>` : ""}
+          </a>`).join("")}
+      </nav>
+      <section class="panel premium-panel">
+        <strong>Tryixa Premium</strong>
+        <p>Unlock advanced creator tools, analytics, and ad-free discovery.</p>
+        <a id="sidebar-upgrade-link" class="btn btn-primary btn-full" href="settings.html">Upgrade Now</a>
+      </section>`;
+  }
+
+  function renderTopbar() {
+    const topbar = document.querySelector(".app-topbar");
+    if (!topbar) return;
+    topbar.innerHTML = `
+      <button id="topbar-menu-btn" class="icon-btn menu-toggle" type="button" aria-label="Open menu">=</button>
+      <form id="global-search-form" class="search-shell" action="search.html">
+        <label class="sr-only" for="global-search-input">Search Tryixa</label>
+        <input id="global-search-input" name="q" type="search" placeholder="Search for people, posts, reels, videos...">
+        <kbd>Ctrl</kbd><kbd>/</kbd>
+      </form>
+      <div class="topbar-actions">
+        <a id="topbar-create-link" class="btn btn-primary" href="upload.html">Create</a>
+        <a id="topbar-ai-link" class="btn btn-secondary" href="ai.html">AI</a>
+        <button id="topbar-theme-btn" class="icon-btn" type="button" aria-label="Toggle theme">DM</button>
+        <a id="topbar-profile-link" class="avatar avatar-sm" href="profile.html">A</a>
+      </div>`;
+  }
+
+  function renderMobileNav() {
+    const mobile = document.querySelector(".mobile-nav");
+    if (!mobile) return;
+    const page = document.body.dataset.page;
+    mobile.innerHTML = navItems.slice(0, 5).map(([href, label, key]) => `<a class="${page === key ? "active" : ""}" href="${href}">${label}</a>`).join("");
+  }
+
+  window.TryixaNavigation = { renderSidebar, renderTopbar, renderMobileNav };
+})();
