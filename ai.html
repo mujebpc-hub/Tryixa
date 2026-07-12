@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AI Studio - Tryixa</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"><link rel="stylesheet" href="css/animation.css"></head>
+<body data-page="ai">
+  <div class="app-shell"><aside class="app-sidebar"></aside><main class="app-main"><header class="app-topbar"></header><div class="page-container content-grid">
+    <section class="stack" data-endpoint="/api/ai">
+      <header class="page-header"><div><h1 class="page-title">AI Studio</h1><p class="page-subtitle">Caption writer, post planner, image prompt helper, comment reply assistant, and creator strategy.</p></div></header>
+      <section class="panel"><div id="ai-message-list" class="message-list"></div><form id="ai-prompt-form" class="chat-composer"><div class="field"><label class="sr-only" for="ai-prompt-input">AI prompt</label><input id="ai-prompt-input" name="prompt" type="text" placeholder="Ask AI to create a caption, idea, reply, or script"></div><button id="ai-send-btn" class="btn btn-primary" type="submit">Send</button></form></section>
+    </section>
+    <aside class="right-rail"><section class="rail-card" id="ai-tools-section"></section><section class="rail-card" id="ai-history-section" data-endpoint="/api/ai/history"></section></aside>
+  </div></main></div><nav class="mobile-nav"></nav>
+  <script src="js/config.js"></script><script src="js/storage.js"></script><script src="js/utils.js"></script><script src="js/api.js"></script><script src="js/navigation.js"></script><script src="js/ai.js"></script><script src="js/theme.js"></script><script src="js/app.js"></script>
+</body></html>
