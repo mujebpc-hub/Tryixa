@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Tryixa</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animation.css">
+</head>
+<body class="auth-page" data-page="signup">
+  <main class="auth-shell">
+    <section class="auth-showcase">
+      <a class="brand" href="index.html"><span class="brand-mark">T</span><span>Tryixa</span></a>
+      <div class="auth-copy">
+        <span class="kicker">Join Tryixa</span>
+        <h1>Build your audience with premium social tools.</h1>
+        <p>Create a profile, publish media, discover creators, chat with friends, and use AI to shape better content.</p>
+      </div>
+      <div class="auth-preview" aria-hidden="true">
+        <div class="preview-block preview-large media-scene"></div>
+        <div class="preview-block preview-small top"></div>
+        <div class="preview-block preview-small bottom"></div>
+      </div>
+    </section>
+    <section class="auth-card" data-endpoint="/api/auth/register">
+      <span class="kicker">Start free</span>
+      <h1>Create account</h1>
+      <p>Your identity, profile, and creator permissions will be stored by the backend later.</p>
+      <form id="signup-form" class="auth-form" novalidate>
+        <div class="form-grid two">
+          <div class="field"><label for="signup-name">Full name</label><input id="signup-name" name="name" type="text" required></div>
+          <div class="field"><label for="signup-username">Username</label><input id="signup-username" name="username" type="text" required></div>
+        </div>
+        <div class="field"><label for="signup-email">Email</label><input id="signup-email" name="email" type="email" required></div>
+        <div class="field"><label for="signup-password">Password</label><input id="signup-password" name="password" type="password" required minlength="8"></div>
+        <label class="check-line" for="signup-terms"><input id="signup-terms" name="terms" type="checkbox" required> I agree to Tryixa terms and safety policies</label>
+        <button id="signup-submit-btn" class="btn btn-primary btn-full" type="submit">Create Account</button>
+      </form>
+      <p>Already registered? <a href="login.html">Login</a></p>
+    </section>
+  </main>
+  <script src="js/config.js"></script><script src="js/storage.js"></script><script src="js/utils.js"></script><script src="js/api.js"></script><script src="js/auth.js"></script>
+</body>
+</html>
