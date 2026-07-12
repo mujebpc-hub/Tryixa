@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Search - Tryixa</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"><link rel="stylesheet" href="css/animation.css"></head>
+<body data-page="search">
+  <div class="app-shell"><aside class="app-sidebar"></aside><main class="app-main"><header class="app-topbar"></header><div class="page-container content-grid">
+    <section class="stack" data-endpoint="/api/search">
+      <header class="page-header"><div><h1 class="page-title">Search</h1><p class="page-subtitle">Find people, posts, reels, videos, hashtags, audio, and communities.</p></div></header>
+      <section class="panel"><form id="search-page-form" class="form-grid"><div class="field"><label for="search-query-input">Search query</label><input id="search-query-input" name="q" type="search" placeholder="Search Tryixa"></div><button id="search-submit-btn" class="btn btn-primary" type="submit">Search</button></form></section>
+      <section class="tabs"><button id="search-tab-all" class="tab-btn active" type="button">All</button><button id="search-tab-users" class="tab-btn" type="button">Users</button><button id="search-tab-posts" class="tab-btn" type="button">Posts</button><button id="search-tab-reels" class="tab-btn" type="button">Reels</button><button id="search-tab-tags" class="tab-btn" type="button">Hashtags</button></section>
+      <section class="stack" id="search-results-section"></section>
+    </section>
+    <aside class="right-rail"><section class="rail-card" id="search-recent-section"></section><section class="rail-card" id="search-trends-section"></section></aside>
+  </div></main></div><nav class="mobile-nav"></nav>
+  <script src="js/config.js"></script><script src="js/storage.js"></script><script src="js/utils.js"></script><script src="js/api.js"></script><script src="js/navigation.js"></script><script src="js/search.js"></script><script src="js/theme.js"></script><script src="js/app.js"></script>
+</body></html>
