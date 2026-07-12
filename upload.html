@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Upload Studio - Tryixa</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"><link rel="stylesheet" href="css/animation.css"></head>
+<body data-page="upload">
+  <div class="app-shell"><aside class="app-sidebar"></aside><main class="app-main"><header class="app-topbar"></header><div class="page-container content-grid">
+    <section class="stack" data-endpoint="/api/uploads">
+      <header class="page-header"><div><h1 class="page-title">Upload Studio</h1><p class="page-subtitle">Publish posts, stories, reels, long videos, and creator drafts.</p></div></header>
+      <section class="panel upload-dropzone" id="upload-dropzone-section"><div><h2>Drop media here</h2><p class="muted">Images, reels, stories, and videos will upload to reserved backend storage.</p><input id="upload-file-input" name="media" type="file" multiple hidden><button id="upload-pick-btn" class="btn btn-primary" type="button">Choose Files</button></div></section>
+      <section class="panel"><form id="upload-form" class="form-grid"><div class="field"><label for="upload-title-input">Title</label><input id="upload-title-input" name="title" type="text" required></div><div class="field"><label for="upload-caption-input">Caption</label><textarea id="upload-caption-input" name="caption"></textarea></div><div class="form-grid two"><div class="field"><label for="upload-type-select">Content type</label><select id="upload-type-select" name="type"><option>post</option><option>story</option><option>reel</option><option>video</option></select></div><div class="field"><label for="upload-visibility-select">Visibility</label><select id="upload-visibility-select" name="visibility"><option>public</option><option>followers</option><option>private</option></select></div></div><button id="upload-submit-btn" class="btn btn-primary" type="submit">Publish</button></form></section>
+    </section>
+    <aside class="right-rail"><section class="rail-card" id="upload-checklist-section"></section><section class="rail-card" id="upload-drafts-section"></section></aside>
+  </div></main></div><nav class="mobile-nav"></nav>
+  <script src="js/config.js"></script><script src="js/storage.js"></script><script src="js/utils.js"></script><script src="js/api.js"></script><script src="js/navigation.js"></script><script src="js/upload.js"></script><script src="js/theme.js"></script><script src="js/app.js"></script>
+</body></html>
