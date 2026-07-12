@@ -1,1644 +1,880 @@
-/* ===================================================
-   TRYIXA CSS FOUNDATION
-   Part 1
-=================================================== */
-
-/* RESET */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+:root {
+  --bg: #050812;
+  --bg-soft: #080d18;
+  --surface: rgba(15, 21, 34, 0.9);
+  --surface-strong: rgba(20, 27, 43, 0.96);
+  --surface-soft: rgba(255, 255, 255, 0.045);
+  --line: rgba(255, 255, 255, 0.1);
+  --line-strong: rgba(255, 255, 255, 0.18);
+  --text: #f8f9ff;
+  --muted: #9ca6ba;
+  --muted-2: #687386;
+  --brand: #6d3bff;
+  --brand-2: #c13cff;
+  --blue: #2f7cff;
+  --cyan: #22d3ee;
+  --green: #34d981;
+  --pink: #ff3d71;
+  --orange: #f59e0b;
+  --radius: 8px;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.46);
+  --font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(109, 59, 255, 0.17), transparent 34rem),
+    radial-gradient(circle at 82% 8%, rgba(34, 211, 238, 0.1), transparent 28rem),
+    linear-gradient(180deg, #050812 0%, #04060c 100%);
+  color: var(--text);
+  font-family: var(--font);
+}
+
+body.is-modal-open {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.app-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 22px 18px;
+  border-right: 1px solid var(--line);
+  background: rgba(5, 8, 18, 0.84);
+  backdrop-filter: blur(18px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.brand-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--blue), var(--brand), var(--brand-2));
+  color: white;
+  font-weight: 950;
+}
+
+.side-nav {
+  display: grid;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+  padding: 0 16px;
+  border-radius: var(--radius);
+  color: #d9deed;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: white;
 }
-
-html{
-    scroll-behavior:smooth;
+
+.nav-badge {
+  min-width: 24px;
+  min-height: 22px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--pink);
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.app-main {
+  min-width: 0;
+}
+
+.app-topbar {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  display: grid;
+  grid-template-columns: auto minmax(260px, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  min-height: 76px;
+  padding: 12px 28px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(5, 8, 18, 0.78);
+  backdrop-filter: blur(18px);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-shell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 12px 0 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
 }
-
-body{
-
-    background:#0f0f0f;
-    color:#ffffff;
-
-    font-family:Arial, Helvetica, sans-serif;
-
-    overflow-x:hidden;
-
+
+.search-shell input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
 }
-
-/* ROOT VARIABLES */
-
-:root{
-
-    --primary:#ff0000;
-    --secondary:#111111;
-
-    --background:#0f0f0f;
-
-    --card:#1b1b1b;
-
-    --border:#2b2b2b;
-
-    --text:#ffffff;
-
-    --text-light:#bdbdbd;
+
+.search-shell kbd {
+  min-width: 28px;
+  padding: 3px 6px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
 
-    --shadow:0 8px 20px rgba(0,0,0,.35);
-
-    --radius:18px;
-
-    --transition:.3s ease;
-
+.page-container {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  padding: 22px 24px 96px;
 }
-
-/* APP */
-
-#app{
-
-    width:100%;
-
-    min-height:100vh;
-
-    display:flex;
 
-    flex-direction:column;
-
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
 }
-
-/* LINKS */
-
-a{
-
-    text-decoration:none;
 
-    color:inherit;
-
+.page-title {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.08;
 }
-
-/* IMAGE */
-
-img{
-
-    max-width:100%;
 
-    display:block;
-
+.page-subtitle {
+  max-width: 720px;
+  margin: 8px 0 0;
+  color: var(--muted);
+  line-height: 1.6;
 }
-
-/* BUTTON */
-
-button{
-
-    border:none;
 
-    outline:none;
-
-    cursor:pointer;
-
-    transition:var(--transition);
-
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 22px;
 }
-
-/* INPUT */
 
-input{
-
-    outline:none;
-
-    border:none;
-
+.three-column-grid {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr) 330px;
+  gap: 22px;
 }
-
-/* LIST */
 
-ul{
-
-    list-style:none;
-
+.panel,
+.card,
+.rail-card,
+.composer-card,
+.post-card,
+.auth-card,
+.media-card,
+.settings-card,
+.admin-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--surface), rgba(9, 14, 25, 0.92));
+  box-shadow: var(--shadow);
 }
-
-/* MAIN */
-
-main{
 
-    width:100%;
-
-    flex:1;
-
+.panel,
+.rail-card,
+.settings-card,
+.admin-card {
+  padding: 18px;
 }
-
-/* SECTION */
-
-section{
 
-    width:100%;
-
+.stack {
+  display: grid;
+  gap: 18px;
 }
-
-/* SCROLLBAR */
-
-::-webkit-scrollbar{
-
-    width:8px;
 
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
 }
 
-::-webkit-scrollbar-track{
-
-    background:#111;
-
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
-
-::-webkit-scrollbar-thumb{
-
-    background:var(--primary);
 
-    border-radius:20px;
-
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
 }
-
-/* TEXT */
-
-h1,h2,h3,h4,h5,h6{
-
-    font-weight:700;
 
+.btn,
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-weight: 800;
 }
 
-p{
-
-    color:var(--text-light);
-
-    line-height:1.6;
-
+.btn {
+  min-height: 44px;
+  padding: 0 18px;
 }
-
-/* HIDDEN */
 
-.hidden{
-
-    display:none;
-
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: var(--surface-soft);
 }
-
-/* ===================================================
-   TRYIXA NAVBAR
-   Part 2
-=================================================== */
-
-.top-navbar{
-
-    position:sticky;
-
-    top:0;
-
-    left:0;
-
-    width:100%;
-
-    height:70px;
-
-    background:#151515;
-
-    display:flex;
-
-    align-items:center;
 
-    justify-content:space-between;
-
-    padding:0 20px;
-
-    border-bottom:1px solid var(--border);
-
-    z-index:999;
-
+.btn-primary {
+  border: 0;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+  color: white;
 }
-
-.logo{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
 
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.logo img{
-
-    width:42px;
-
-    height:42px;
-
-    object-fit:cover;
-
+.btn-danger {
+  border: 0;
+  background: var(--pink);
+  color: white;
 }
-
-.logo h2{
-
-    color:var(--text);
-
-    font-size:22px;
-
-    letter-spacing:1px;
 
+.btn-full {
+  width: 100%;
 }
 
-.nav-icons{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
+.avatar {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--blue), var(--brand-2));
+  color: white;
+  font-weight: 900;
 }
-
-.nav-icons button{
-
-    width:42px;
-
-    height:42px;
-
-    border-radius:50%;
 
-    background:var(--card);
-
-    color:#ffffff;
-
-    font-size:18px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    transition:0.3s;
-
+.avatar-lg {
+  width: 86px;
+  height: 86px;
+  font-size: 30px;
 }
-
-.nav-icons button:hover{
 
-    background:var(--primary);
-
-    transform:scale(1.08);
-
+.avatar-sm {
+  width: 34px;
+  height: 34px;
+  font-size: 13px;
 }
-
-.nav-icons button:active{
-
-    transform:scale(.95);
 
+.muted {
+  color: var(--muted);
 }
-
-/* ===================================================
-   TRYIXA STORIES
-   Part 3
-=================================================== */
-
-#stories{
-
-    width:100%;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    padding:15px 18px;
-
-    overflow-x:auto;
-
-    overflow-y:hidden;
-
-    background:#111111;
-
-    border-bottom:1px solid var(--border);
-
-    scroll-behavior:smooth;
 
+.kicker {
+  color: #d9c4ff;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.08em;
 }
 
-#stories::-webkit-scrollbar{
-
-    display:none;
-
+.premium-panel {
+  margin-top: 28px;
+  padding: 18px;
 }
-
-.story{
-
-    min-width:80px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    cursor:pointer;
 
-    transition:var(--transition);
-
+.premium-panel p,
+.rail-card p,
+.card p,
+.settings-card p,
+.admin-card p {
+  color: var(--muted);
+  line-height: 1.55;
 }
-
-.story:hover{
 
-    transform:translateY(-3px);
-
+.stories-strip {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 96px;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 18px;
 }
-
-.story-image{
-
-    width:68px;
-
-    height:68px;
-
-    border-radius:50%;
-
-    padding:3px;
 
-    background:linear-gradient(45deg,#ff0000,#ff5a5f,#ff9800);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
+.story-card {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  min-width: 0;
+  text-align: center;
 }
-
-.story-image img{
-
-    width:100%;
-
-    height:100%;
-
-    border-radius:50%;
 
-    object-fit:cover;
-
-    border:3px solid #111111;
-
+.story-ring {
+  width: 72px;
+  height: 72px;
+  border: 3px solid var(--brand-2);
+  box-shadow: 0 0 0 3px rgba(109, 59, 255, 0.22);
 }
-
-.story-name{
-
-    margin-top:8px;
-
-    font-size:12px;
-
-    color:var(--text);
-
-    text-align:center;
-
-    white-space:nowrap;
 
-    overflow:hidden;
-
-    text-overflow:ellipsis;
-
-    max-width:72px;
-
+.story-card strong {
+  width: 90px;
+  overflow: hidden;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-
-.story.active .story-image{
 
-    background:#555555;
-
+.composer-card {
+  padding: 16px 18px;
 }
-
-.story.live .story-image{
 
-    animation:storyPulse 2s infinite;
-
+.composer-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
-
-@keyframes storyPulse{
-
-    0%{
-
-        transform:scale(1);
-
-    }
-
-    50%{
-
-        transform:scale(1.08);
-
-    }
-
-    100%{
-
-        transform:scale(1);
 
-    }
-
+.composer-trigger {
+  width: 100%;
+  min-height: 56px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+  color: var(--muted);
+  text-align: left;
 }
-
-/* ===================================================
-   TRYIXA FEED
-   Part 4
-=================================================== */
-
-#feed{
-
-    width:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:20px;
-
-    padding:20px;
 
+.composer-tools,
+.post-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
 }
-
-/* ===========================
-   Post Card
-=========================== */
-
-.post-card{
-
-    width:100%;
-
-    background:var(--card);
-
-    border:1px solid var(--border);
-
-    border-radius:var(--radius);
-
-    overflow:hidden;
-
-    box-shadow:var(--shadow);
 
-    transition:var(--transition);
-
+.composer-tools button,
+.post-actions button {
+  min-height: 42px;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: #d9deed;
 }
-
-.post-card:hover{
 
-    transform:translateY(-2px);
-
+.post-card {
+  padding: 20px;
 }
-
-/* ===========================
-   Post Header
-=========================== */
-
-.post-header{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
 
-    padding:14px 16px;
-
+.post-header,
+.profile-header-row,
+.rail-heading,
+.entity-row,
+.comment-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-
-.post-user{
-
-    display:flex;
-
-    align-items:center;
 
-    gap:12px;
-
+.post-header h2,
+.rail-heading h2,
+.panel h2,
+.card h2 {
+  margin: 0;
+  font-size: 18px;
 }
-
-.post-user img{
-
-    width:46px;
-
-    height:46px;
 
-    border-radius:50%;
-
-    object-fit:cover;
+.post-header p,
+.entity-row p,
+.comment-row p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
 
+.post-header .icon-btn {
+  margin-left: auto;
 }
 
-.post-user-info{
+.post-copy {
+  margin: 16px 0 14px;
+  line-height: 1.6;
+}
 
-    display:flex;
+.media-scene {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(7, 10, 18, 0), rgba(7, 10, 18, 0.84)),
+    radial-gradient(circle at 74% 18%, #ffd08a 0 6%, transparent 13%),
+    linear-gradient(145deg, transparent 0 40%, rgba(255, 255, 255, 0.22) 40% 41%, transparent 41%),
+    linear-gradient(153deg, transparent 0 32%, #29374d 32% 45%, transparent 45%),
+    linear-gradient(25deg, #1e293b 0 32%, transparent 32%),
+    linear-gradient(155deg, transparent 0 26%, #394b68 26% 47%, transparent 47%),
+    linear-gradient(180deg, #7fb0df, #2c4567 42%, #111827 68%, #0a0e16);
+}
 
-    flex-direction:column;
+.media-scene.portrait {
+  min-height: 620px;
+}
 
+.media-label {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  font-weight: 900;
 }
 
-.post-user-info h4{
+.media-caption {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+}
 
-    font-size:15px;
+.post-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 0;
+}
 
-    color:var(--text);
+.post-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+}
 
+.post-dots .active {
+  width: 28px;
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
 }
 
-.post-user-info span{
+.rail-card {
+  display: grid;
+  gap: 12px;
+}
 
-    font-size:12px;
+.rail-heading {
+  justify-content: space-between;
+}
 
-    color:var(--text-light);
+.rail-heading a {
+  color: #c084fc;
+  font-weight: 800;
+}
 
+.entity-row {
+  justify-content: space-between;
 }
 
-.post-menu{
+.entity-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
 
-    cursor:pointer;
+.entity-main strong,
+.entity-main p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-    font-size:22px;
+.trend-link {
+  display: grid;
+  gap: 4px;
+  padding: 10px 0;
+}
 
-    color:var(--text-light);
+.trend-link span {
+  color: var(--muted);
+  font-size: 13px;
+}
 
+.tabs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
 }
 
-/* ===========================
-   Post Image
-=========================== */
+.tab-btn {
+  min-height: 40px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-soft);
+  color: var(--text);
+}
 
-.post-image{
+.tab-btn.active {
+  border: 0;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+}
 
-    width:100%;
+.metric-card {
+  padding: 18px;
+}
 
+.metric-value {
+  margin: 6px 0 0;
+  font-size: 30px;
+  font-weight: 950;
 }
 
-.post-image img{
+.form-grid {
+  display: grid;
+  gap: 14px;
+}
 
-    width:100%;
+.form-grid.two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
 
-    display:block;
+.field {
+  display: grid;
+  gap: 8px;
+}
 
-    object-fit:cover;
+.field label {
+  font-weight: 800;
+}
 
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  outline: 0;
+  background: var(--surface-soft);
+  color: var(--text);
 }
 
-/* ===========================
-   Post Actions
-=========================== */
+.field textarea {
+  min-height: 120px;
+  padding: 14px;
+  resize: vertical;
+}
 
-.post-actions{
+.field input:focus,
+.field textarea:focus,
+.field select:focus,
+.search-shell:focus-within {
+  border-color: rgba(193, 60, 255, 0.75);
+  box-shadow: 0 0 0 4px rgba(109, 59, 255, 0.16);
+}
 
-    display:flex;
+.auth-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 28px;
+}
 
-    justify-content:space-between;
+.auth-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(360px, 460px);
+  gap: 28px;
+  width: min(1120px, 100%);
+  min-height: min(760px, calc(100vh - 56px));
+}
 
-    align-items:center;
+.auth-showcase {
+  position: relative;
+  overflow: hidden;
+  padding: 34px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(5, 8, 18, 0.08), rgba(5, 8, 18, 0.9)),
+    linear-gradient(135deg, #111827, #161c2c 44%, #0a1020);
+  box-shadow: var(--shadow);
+}
 
-    padding:14px 16px;
+.auth-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 620px;
+  margin-top: 78px;
+}
 
+.auth-copy h1 {
+  margin: 14px 0 0;
+  font-size: clamp(38px, 5vw, 68px);
+  line-height: 1.02;
 }
 
-.post-left-actions{
+.auth-copy p {
+  color: var(--muted);
+  line-height: 1.6;
+}
 
-    display:flex;
+.auth-preview {
+  position: absolute;
+  right: 34px;
+  bottom: 34px;
+  width: min(520px, 78%);
+  height: 360px;
+}
 
-    gap:14px;
+.preview-block {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
 
+.preview-large {
+  inset: 0 76px 0 0;
 }
 
-.action-btn{
+.preview-small {
+  right: 0;
+  width: 180px;
+  height: 124px;
+  background: linear-gradient(135deg, rgba(109, 59, 255, 0.92), rgba(34, 211, 238, 0.7));
+}
 
-    background:none;
+.preview-small.top {
+  top: 36px;
+}
 
-    color:var(--text);
+.preview-small.bottom {
+  bottom: 42px;
+  background: linear-gradient(135deg, rgba(255, 61, 113, 0.9), rgba(193, 60, 255, 0.72));
+}
 
-    font-size:20px;
+.auth-card {
+  align-self: center;
+  padding: 34px;
+}
 
-    transition:var(--transition);
+.auth-card h1 {
+  margin: 10px 0 0;
+  font-size: 34px;
+}
 
+.auth-card p {
+  color: var(--muted);
+  line-height: 1.6;
 }
 
-.action-btn:hover{
+.auth-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 24px;
+}
 
-    color:var(--primary);
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
 
-    transform:scale(1.1);
+.check-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
 
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 24px 0;
+  color: var(--muted);
 }
 
-/* ===========================
-   Likes
-=========================== */
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  height: 1px;
+  flex: 1;
+  background: var(--line);
+}
 
-.post-likes{
+.mobile-nav {
+  display: none;
+}
 
-    padding:0 16px;
+.chat-layout {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  min-height: calc(100vh - 124px);
+}
 
-    font-size:14px;
+.chat-list,
+.chat-room {
+  min-height: 0;
+}
 
-    font-weight:bold;
+.chat-list {
+  border-right: 1px solid var(--line);
+}
 
-    color:var(--text);
+.message-list {
+  display: grid;
+  align-content: end;
+  gap: 12px;
+  min-height: 420px;
+  padding: 18px;
+}
 
+.message-bubble {
+  max-width: 70%;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  line-height: 1.45;
 }
 
-/* ===========================
-   Caption
-=========================== */
+.message-bubble.outgoing {
+  justify-self: end;
+  background: linear-gradient(135deg, var(--brand), var(--brand-2));
+}
 
-.post-caption{
+.chat-composer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: 16px;
+  border-top: 1px solid var(--line);
+}
 
-    padding:10px 16px;
+.upload-dropzone {
+  display: grid;
+  min-height: 260px;
+  place-items: center;
+  padding: 28px;
+  border: 1px dashed rgba(193, 60, 255, 0.58);
+  border-radius: var(--radius);
+  background: rgba(109, 59, 255, 0.07);
+  text-align: center;
+}
 
-    color:var(--text-light);
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: rgba(52, 217, 129, 0.14);
+  color: #98f7c4;
+  font-size: 12px;
+  font-weight: 900;
+}
 
-    line-height:1.6;
-
-}
-
-.post-caption strong{
-
-    color:var(--text);
-
-}
-
-/* ===========================
-   Comments
-=========================== */
-
-.post-comments{
-
-    padding:0 16px 16px;
-
-    color:#8f8f8f;
-
-    font-size:14px;
-
-    cursor:pointer;
-
-}
-
-.post-comments:hover{
-
-    color:var(--text);
-
-}
-
-/* ===================================================
-   TRYIXA REELS & VIDEO
-   Part 5
-=================================================== */
-
-/* ===========================
-   Reels Container
-=========================== */
-
-#reels{
-
-    width:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:25px;
-
-    padding:20px;
-
-}
-
-/* ===========================
-   Reel Card
-=========================== */
-
-.reel-card{
-
-    position:relative;
-
-    width:100%;
-
-    max-width:450px;
-
-    margin:auto;
-
-    border-radius:var(--radius);
-
-    overflow:hidden;
-
-    background:#000;
-
-    box-shadow:var(--shadow);
-
-}
-
-/* ===========================
-   Video
-=========================== */
-
-.reel-card video{
-
-    width:100%;
-
-    height:700px;
-
-    object-fit:cover;
-
-    display:block;
-
-    background:#000;
-
-}
-
-/* ===========================
-   Video Overlay
-=========================== */
-
-.reel-overlay{
-
-    position:absolute;
-
-    inset:0;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:flex-end;
-
-    padding:20px;
-
-    background:linear-gradient(
-        transparent,
-        rgba(0,0,0,.65)
-    );
-
-}
-
-/* ===========================
-   User Info
-=========================== */
-
-.reel-user{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:8px;
-
-    color:#fff;
-
-}
-
-.reel-user h3{
-
-    font-size:18px;
-
-}
-
-.reel-user p{
-
-    color:#ddd;
-
-    font-size:14px;
-
-}
-
-/* ===========================
-   Right Actions
-=========================== */
-
-.reel-actions{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:18px;
-
-    align-items:center;
-
-}
-
-.reel-actions button{
-
-    width:54px;
-
-    height:54px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.12);
-
-    color:#fff;
-
-    font-size:22px;
-
-    backdrop-filter:blur(8px);
-
-}
-
-.reel-actions button:hover{
-
-    background:var(--primary);
-
-    transform:scale(1.08);
-
-}
-
-/* ===========================
-   Play Button
-=========================== */
-
-.play-btn{
-
-    position:absolute;
-
-    top:50%;
-
-    left:50%;
-
-    transform:translate(-50%,-50%);
-
-    width:80px;
-
-    height:80px;
-
-    border-radius:50%;
-
-    background:rgba(0,0,0,.45);
-
-    color:#fff;
-
-    font-size:32px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    opacity:0;
-
-    transition:.3s;
-
-}
-
-.reel-card:hover .play-btn{
-
-    opacity:1;
-
-}
-
-/* ===========================
-   Progress Bar
-=========================== */
-
-.video-progress{
-
-    position:absolute;
-
-    bottom:0;
-
-    left:0;
-
-    width:100%;
-
-    height:4px;
-
-    background:#333;
-
-}
-
-.video-progress span{
-
-    display:block;
-
-    width:30%;
-
-    height:100%;
-
-    background:var(--primary);
-
-}
-
-/* ===========================
-   Live Badge
-=========================== */
-
-.live-badge{
-
-    position:absolute;
-
-    top:15px;
-
-    left:15px;
-
-    background:red;
-
-    color:#fff;
-
-    padding:6px 12px;
-
-    border-radius:20px;
-
-    font-size:12px;
-
-    font-weight:bold;
-
-}
-
-/* ===================================================
-   TRYIXA FLOATING BUTTONS, MODALS & POPUPS
-   Part 6
-=================================================== */
-
-/* Floating Create Button */
-
-#createPost{
-
-    position:fixed;
-
-    right:22px;
-
-    bottom:90px;
-
-    width:60px;
-
-    height:60px;
-
-    border-radius:50%;
-
-    background:var(--primary);
-
-    color:#ffffff;
-
-    font-size:30px;
-
-    box-shadow:var(--shadow);
-
-    z-index:1000;
-
-}
-
-#createPost:hover{
-
-    transform:scale(1.08);
-
-}
-
-/* AI Button */
-
-#aiAssistantBtn{
-
-    position:fixed;
-
-    left:22px;
-
-    bottom:90px;
-
-    width:58px;
-
-    height:58px;
-
-    border-radius:50%;
-
-    background:#111111;
-
-    color:#ffffff;
-
-    border:2px solid var(--primary);
-
-    font-weight:bold;
-
-    box-shadow:var(--shadow);
-
-    z-index:1000;
-
-}
-
-#aiAssistantBtn:hover{
-
-    background:var(--primary);
-
-}
-
-/* Overlay */
-
-.overlay{
-
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(0,0,0,.75);
-
-    backdrop-filter:blur(8px);
-
-    z-index:1500;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:flex-start;
-
-    padding-top:90px;
-
-}
-
-/* Search Box */
-
-.search-box{
-
-    width:90%;
-
-    max-width:600px;
-
-}
-
-.search-box input{
-
-    width:100%;
-
-    padding:16px 20px;
-
-    border-radius:40px;
-
-    background:var(--card);
-
-    color:#ffffff;
-
-    border:1px solid var(--border);
-
-}
-
-/* Modal */
-
-.modal{
-
-    position:fixed;
-
-    inset:0;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:rgba(0,0,0,.75);
-
-    z-index:2000;
-
-}
-
-.modal-content{
-
-    width:92%;
-
-    max-width:500px;
-
-    background:var(--card);
-
-    border-radius:20px;
-
-    padding:25px;
-
-    border:1px solid var(--border);
-
-    box-shadow:var(--shadow);
-
-}
-
-/* Popup */
-
-#popupContainer{
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    z-index:2500;
-
-}
-
-/* Toast */
-
-#toast{
-
-    position:fixed;
-
-    left:50%;
-
-    bottom:100px;
-
-    transform:translateX(-50%);
-
-    background:var(--primary);
-
-    color:#ffffff;
-
-    padding:14px 24px;
-
-    border-radius:30px;
-
-    box-shadow:var(--shadow);
-
-    opacity:0;
-
-    transition:.35s;
-
+.danger-zone {
+  border-color: rgba(255, 61, 113, 0.36);
+  background: rgba(255, 61, 113, 0.06);
 }
-
-/* Loader */
-
-#loader{
-
-    position:fixed;
-
-    inset:0;
-
-    background:#0f0f0f;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    gap:20px;
-
-    z-index:9999;
-
-}
-
-.loader-circle{
-
-    width:70px;
-
-    height:70px;
-
-    border-radius:50%;
-
-    border:5px solid #333333;
-
-    border-top:5px solid var(--primary);
-
-    animation:loaderSpin 1s linear infinite;
-
-}
-
-@keyframes loaderSpin{
-
-    from{
-
-        transform:rotate(0deg);
-
-    }
-
-    to{
-
-        transform:rotate(360deg);
-
-    }
-
-}
-
-/* ===================================================
-   TRYIXA CHAT, PROFILE & NOTIFICATIONS
-   Part 7
-=================================================== */
-
-/* ===========================
-   Notification Panel
-=========================== */
-
-#notificationPanel{
-
-    position:fixed;
-
-    top:70px;
-
-    right:20px;
-
-    width:350px;
-
-    max-height:500px;
-
-    overflow-y:auto;
-
-    background:var(--card);
-
-    border:1px solid var(--border);
-
-    border-radius:20px;
-
-    box-shadow:var(--shadow);
-
-    padding:20px;
-
-    z-index:1800;
-
-}
-
-#notificationPanel h3{
-
-    margin-bottom:15px;
-
-}
-
-/* ===========================
-   Chat Popup
-=========================== */
-
-#chatPopup{
-
-    position:fixed;
-
-    right:20px;
-
-    bottom:100px;
-
-    width:350px;
-
-    height:500px;
-
-    background:var(--card);
-
-    border-radius:20px;
-
-    border:1px solid var(--border);
-
-    box-shadow:var(--shadow);
-
-    display:flex;
-
-    flex-direction:column;
-
-    overflow:hidden;
-
-    z-index:1800;
-
-}
-
-#chatList{
-
-    flex:1;
-
-    overflow-y:auto;
-
-    padding:15px;
-
-}
-
-/* ===========================
-   Profile Popup
-=========================== */
-
-#profilePopup{
-
-    position:fixed;
-
-    top:90px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    width:320px;
-
-    background:var(--card);
-
-    border-radius:20px;
-
-    border:1px solid var(--border);
-
-    box-shadow:var(--shadow);
-
-    padding:25px;
-
-    text-align:center;
-
-    z-index:1800;
-
-}
-
-.profile-card img{
-
-    width:100px;
-
-    height:100px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    margin:0 auto 15px;
-
-    border:3px solid var(--primary);
-
-}
-
-.profile-card h2{
-
-    margin-bottom:8px;
-
-}
-
-.profile-card p{
-
-    color:var(--text-light);
-
-}
-
-/* ===========================
-   Desktop Sidebars
-=========================== */
-
-#leftSidebar,
-#rightSidebar{
-
-    display:none;
-
-}
-
-/* Desktop */
-
-@media (min-width:1200px){
-
-    #leftSidebar{
-
-        display:block;
-
-        position:fixed;
-
-        top:70px;
-
-        left:0;
-
-        width:260px;
-
-        height:calc(100vh - 70px);
-
-        background:#151515;
-
-        border-right:1px solid var(--border);
-
-    }
-
-    #rightSidebar{
-
-        display:block;
-
-        position:fixed;
-
-        top:70px;
-
-        right:0;
-
-        width:300px;
-
-        height:calc(100vh - 70px);
-
-        background:#151515;
-
-        border-left:1px solid var(--border);
-
-    }
-
-    #feed,
-    #stories,
-    #reels{
-
-        max-width:700px;
-
-        margin:0 auto;
-
-    }
-
-}
-
-/* ===================================================
-   TRYIXA UTILITIES & FOOTER
-   Part 8 (Final)
-=================================================== */
-
-/* ===========================
-   Footer
-=========================== */
-
-#footer{
-
-    width:100%;
-
-    text-align:center;
-
-    padding:30px 20px;
-
-    background:#111111;
-
-    border-top:1px solid var(--border);
-
-    margin-top:40px;
-
-}
-
-#footer p{
-
-    color:var(--text-light);
-
-    font-size:14px;
-
-}
-
-/* ===========================
-   Empty State
-=========================== */
-
-#emptyState{
-
-    width:100%;
-
-    text-align:center;
-
-    padding:80px 20px;
-
-}
-
-#emptyState h2{
-
-    margin-bottom:10px;
-
-}
-
-#emptyState p{
-
-    color:var(--text-light);
-
-}
-
-/* ===========================
-   Offline Banner
-=========================== */
-
-#offlineBanner{
-
-    position:fixed;
-
-    left:50%;
-
-    bottom:20px;
-
-    transform:translateX(-50%);
-
-    background:#ff9800;
-
-    color:#111111;
-
-    padding:12px 24px;
-
-    border-radius:30px;
-
-    font-weight:bold;
-
-    display:none;
-
-    z-index:3000;
-
-}
-
-/* ===========================
-   Utility Classes
-=========================== */
-
-.hidden{
-
-    display:none !important;
-
-}
-
-.show{
-
-    display:block !important;
-
-}
-
-.flex{
-
-    display:flex !important;
-
-}
-
-.grid{
-
-    display:grid !important;
-
-}
-
-.center{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-}
-
-.text-center{
-
-    text-align:center;
-
-}
-
-/* ===========================
-   Common Spacing
-=========================== */
-
-.mt-10{margin-top:10px;}
-.mt-20{margin-top:20px;}
-.mt-30{margin-top:30px;}
-
-.mb-10{margin-bottom:10px;}
-.mb-20{margin-bottom:20px;}
-.mb-30{margin-bottom:30px;}
-
-.p-10{padding:10px;}
-.p-20{padding:20px;}
-.p-30{padding:30px;}
-
-/* ===========================
-   Common Animations
-=========================== */
-
-.fade-in{
-
-    animation:fadeIn .35s ease;
-
-}
-
-.scale-in{
-
-    animation:scaleIn .25s ease;
-
-}
-
-@keyframes fadeIn{
-
-    from{
-
-        opacity:0;
-
-    }
-
-    to{
-
-        opacity:1;
-
-    }
-
-}
-
-@keyframes scaleIn{
-
-    from{
-
-        transform:scale(.9);
-
-        opacity:0;
-
-    }
-
-    to{
-
-        transform:scale(1);
-
-        opacity:1;
-
-    }
-
-}
-
-/* ===========================
-   Selection
-=========================== */
-
-::selection{
-
-    background:var(--primary);
-
-    color:#ffffff;
-
-}
-
-/* ===========================
-   Focus
-=========================== */
-
-button:focus,
-input:focus{
-
-    outline:2px solid var(--primary);
-
-    outline-offset:2px;
 
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 13px;
 }
