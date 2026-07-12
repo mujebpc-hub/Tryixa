@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Admin - Tryixa</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"><link rel="stylesheet" href="css/animation.css"></head>
+<body data-page="admin">
+  <div class="app-shell"><aside class="app-sidebar"></aside><main class="app-main"><header class="app-topbar"></header><div class="page-container stack">
+    <header class="page-header"><div><h1 class="page-title">Tryixa Admin</h1><p class="page-subtitle">Platform health, moderation queues, user reports, content review, and AI safety controls.</p></div><button id="admin-refresh-btn" class="btn btn-primary" type="button">Refresh</button></header>
+    <section class="grid-4" id="admin-metrics-section" data-endpoint="/api/admin/metrics"></section>
+    <section class="grid-2"><article class="admin-card" id="admin-reports-section" data-endpoint="/api/admin/reports"><h2>Reports Queue</h2><div id="admin-reports-list" class="stack"></div></article><article class="admin-card" id="admin-users-section" data-endpoint="/api/admin/users"><h2>User Controls</h2><div id="admin-users-list" class="stack"></div></article></section>
+    <section class="admin-card" id="admin-audit-section" data-endpoint="/api/admin/audit"><h2>Audit Log</h2><div id="admin-audit-list" class="stack"></div></section>
+  </div></main></div><nav class="mobile-nav"></nav>
+  <script src="js/config.js"></script><script src="js/storage.js"></script><script src="js/utils.js"></script><script src="js/api.js"></script><script src="js/navigation.js"></script><script src="js/theme.js"></script><script src="js/app.js"></script>
+</body></html>
