@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore - Tryixa</title>
+  <link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"><link rel="stylesheet" href="css/animation.css">
+</head>
+<body data-page="explore">
+  <div class="app-shell">
+    <aside class="app-sidebar"></aside>
+    <main class="app-main">
+      <header class="app-topbar"></header>
+      <div class="page-container content-grid">
+        <section class="stack explore-area" data-endpoint="/api/explore">
+          <header class="page-header"><div><h1 class="page-title">Explore</h1><p class="page-subtitle">Trending creators, hashtags, categories, reels, videos, and photos.</p></div></header>
+          <section class="tabs" id="explore-tabs-section">
+            <button id="explore-tab-for-you" class="tab-btn active" type="button">For You</button>
+            <button id="explore-tab-trending" class="tab-btn" type="button">Trending</button>
+            <button id="explore-tab-people" class="tab-btn" type="button">People</button>
+            <button id="explore-tab-reels" class="tab-btn" type="button">Reels</button>
+            <button id="explore-tab-videos" class="tab-btn" type="button">Videos</button>
+          </section>
+          <section class="panel" id="explore-trending-section"><div class="rail-heading"><h2>Trending Today</h2><a href="search.html">View all</a></div><div class="grid-4" id="explore-trending-grid"></div></section>
+          <section class="panel" id="explore-categories-section"><div class="rail-heading"><h2>Explore by Categories</h2><a href="search.html">View all</a></div><div class="grid-4" id="explore-category-grid"></div></section>
+          <section class="panel" id="explore-creators-section"><div class="rail-heading"><h2>Top Creators</h2><a href="profile.html">View all</a></div><div class="grid-4" id="explore-creator-grid"></div></section>
+        </section>
+        <aside class="right-rail"><section class="rail-card" id="explore-hashtags-section" data-endpoint="/api/hashtags/trending"></section><section class="rail-card" id="explore-suggestions-section" data-endpoint="/api/users/suggestions"></section></aside>
+      </div>
+    </main>
+  </div>
+  <nav class="mobile-nav"></nav>
+  <script src="js/config.js"></script><script src="js/storage.js"></script><script src="js/utils.js"></script><script src="js/api.js"></script><script src="js/navigation.js"></script><script src="js/search.js"></script><script src="js/theme.js"></script><script src="js/app.js"></script>
+</body>
+</html>
