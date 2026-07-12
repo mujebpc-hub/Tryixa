@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Videos - Tryixa</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/responsive.css"><link rel="stylesheet" href="css/animation.css"></head>
+<body data-page="videos">
+  <div class="app-shell"><aside class="app-sidebar"></aside><main class="app-main"><header class="app-topbar"></header><div class="page-container content-grid">
+    <section class="stack" data-endpoint="/api/videos">
+      <header class="page-header"><div><h1 class="page-title">Videos</h1><p class="page-subtitle">Long-form creator videos, series, playlists, and watch history.</p></div><a id="videos-upload-link" class="btn btn-primary" href="upload.html">Upload Video</a></header>
+      <section class="tabs"><button id="videos-tab-recommended" class="tab-btn active" type="button">Recommended</button><button id="videos-tab-live" class="tab-btn" type="button">Live</button><button id="videos-tab-following" class="tab-btn" type="button">Following</button></section>
+      <section class="grid-2" id="video-grid-section"></section>
+    </section>
+    <aside class="right-rail"><section class="rail-card" id="video-playlists-section"></section><section class="rail-card" id="video-history-section"></section></aside>
+  </div></main></div><nav class="mobile-nav"></nav>
+  <script src="js/config.js"></script><script src="js/storage.js"></script><script src="js/utils.js"></script><script src="js/api.js"></script><script src="js/navigation.js"></script><script src="js/videos.js"></script><script src="js/theme.js"></script><script src="js/app.js"></script>
+</body></html>
