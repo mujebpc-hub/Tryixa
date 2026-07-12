@@ -1,1 +1,195 @@
+@media (max-width: 1180px) {
+  .app-shell {
+    grid-template-columns: 86px minmax(0, 1fr);
+  }
+
+  .app-sidebar {
+    padding: 20px 12px;
+  }
+
+  .brand span:last-child,
+  .nav-link span,
+  .premium-panel {
+    display: none;
+  }
+
+  .brand {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-link {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .content-grid,
+  .three-column-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .right-rail {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 920px) {
+  .app-topbar {
+    grid-template-columns: auto 1fr;
+    padding: 12px 16px;
+  }
+
+  .topbar-actions .btn,
+  .topbar-actions .icon-btn,
+  .search-shell kbd {
+    display: none;
+  }
+
+  .right-rail,
+  .grid-3,
+  .grid-4,
+  .form-grid.two {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .auth-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-showcase {
+    min-height: 430px;
+  }
+
+  .auth-copy {
+    margin-top: 44px;
+  }
+
+  .auth-preview {
+    opacity: 0.55;
+  }
+
+  .chat-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-list {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    display: block;
+  }
+
+  .app-sidebar {
+    display: none;
+  }
+
+  .app-topbar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .page-container {
+    padding: 16px 12px 88px;
+  }
+
+  .page-header {
+    display: grid;
+  }
+
+  .right-rail,
+  .grid-2,
+  .grid-3,
+  .grid-4,
+  .form-grid.two {
+    grid-template-columns: 1fr;
+  }
+
+  .stories-strip {
+    grid-auto-columns: 82px;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .story-ring {
+    width: 62px;
+    height: 62px;
+  }
+
+  .composer-tools,
+  .post-actions {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .post-card,
+  .composer-card,
+  .rail-card,
+  .panel,
+  .auth-card,
+  .settings-card,
+  .admin-card {
+    padding: 16px;
+  }
+
+  .media-scene {
+    min-height: 330px;
+  }
+
+  .media-scene.portrait {
+    min-height: 560px;
+  }
+
+  .auth-page {
+    padding: 12px;
+  }
+
+  .auth-showcase {
+    display: none;
+  }
+
+  .auth-shell {
+    min-height: auto;
+  }
+
+  .message-bubble {
+    max-width: 88%;
+  }
+
+  .mobile-nav {
+    position: fixed;
+    z-index: 30;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    min-height: 60px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: rgba(13, 18, 29, 0.94);
+    backdrop-filter: blur(16px);
+    box-shadow: var(--shadow);
+  }
+
+  .mobile-nav a {
+    display: grid;
+    place-items: center;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  .mobile-nav a.active {
+    color: #d778ff;
+    font-weight: 900;
+  }
+}
 
